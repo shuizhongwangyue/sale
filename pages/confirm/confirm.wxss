@@ -1,0 +1,134 @@
+/* pages/confirm/confirm.wxss */
+page{
+    padding: 30rpx 0;
+    padding-bottom: 88rpx;
+}
+.goods{
+    display: flex;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    background: #F1F0F5;
+}
+.goods image{
+    width: 120rpx;
+}
+.goods>view{
+    flex-grow: 2;
+    padding: 10rpx 0;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+}
+.title{
+    color: black;
+}
+.time{
+    font-size: 12px;
+    margin-top: 2rpx;
+}
+.border-line{
+    padding: 0 30rpx;
+}
+
+.tickets_nums{
+    display: flex;
+    box-sizing: border-box;
+    line-height: 3em;
+}
+.tickets_nums>view:nth-child(1){
+    flex-grow: 2
+}
+
+.get_tickets{
+    padding: 0 30rpx;
+}
+.get_tickets .desc:nth-child(1){
+    border-top: none;
+}
+.desc{
+    display: flex;
+    padding: 20rpx 0;
+    border-top: 1px solid #D8D8D8;
+}
+.desc>view:nth-child(1){
+    white-space: nowrap;
+    line-height: 20px;
+}
+.desc>view:nth-child(2){
+    flex-grow: 2;
+    line-height: 20px;
+}
+
+.price_msg>view{
+    display: flex;
+    padding: 20rpx 30rpx;
+}
+.price_msg>view{
+    border-bottom: 1px solid #D8D8D8;
+}
+.price_msg>view:nth-last-child(1){
+    border: none;
+}
+.price_msg>view>view:nth-child(1){
+    flex-grow: 2;
+}
+.price_msg>view>view:nth-child(2){
+    align-self: center;
+}
+.postage{
+    color: #FA5939;
+}
+.text{
+    color: #666;
+    font-size: 12px;
+}
+.text3 {
+    display: inline-block;
+    width: 1em;
+    height: 20rpx;
+}
+
+.text2 {
+    display: inline-block;
+    width: 0.5em;
+    height: 20rpx;
+}
+
+.btns {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 88rpx;
+    text-align: right;
+    border-top: 1px solid #d4d4d4;
+    background-color: #fff;
+}
+.sub{
+    padding-left: 30rpx;
+    flex-grow: 2;
+    text-align: left;
+}
+.btns .total{
+    font-size: 16px;
+    color: #FA5939;
+    line-height: 88rpx;
+}
+.btns button {
+    display: inline-block;
+    margin:0;
+    width: 316rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff;
+    border-radius: 0;
+    letter-spacing: 2px;
+    font-size: 16px;
+    background-color: #4287ff;
+}
+
+.btns button:after {
+    border: none;
+    border-radius: none;
+}

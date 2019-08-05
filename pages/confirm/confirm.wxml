@@ -1,0 +1,119 @@
+<!--pages/confirm/confirm.wxml-->
+<view class='goods'>
+    <image bindtap='previewImage' mode='widthFix' src="/images/vs.jpg"></image>
+    <view>
+        <view class='title'>{{data.event_name}}</view>
+        <view class='time'>{{eventInfo.enterTime}}</view>
+        <view class='time'>{{eventInfo.eventAddress}}</view>
+    </view>
+</view>
+
+<view class='tickets_nums border-line'>
+    <view>{{data.piece_type}}￥{{data.price}}</view>
+    <view>x{{data.num}}</view>
+</view>
+
+<view class='border-line get_tickets'>
+    <view class='desc'>
+        <view>取票方式：</view>
+        <view>{{data.order_type == 2?"快递寄送":"到点自取"}}</view>
+    </view>
+    <block wx:if="{{data.order_type == 2}}">
+        <view class='desc'>收货地址：{{data.address}}</view>
+    </block>
+    <block wx:if="{{data.order_type == 1}}">
+        <view class='desc'>
+            <view>取票地址：</view>
+            <view>{{eventInfo.ticketAddress}}</view>
+        </view>
+        <view class='desc'>
+            <view>取票时间：</view>
+            <view>{{eventInfo.ticketTime}}</view>
+        </view>
+    </block>
+    <view class='desc'>
+        <view>联系电话：</view>
+        <view>{{data.phone}}</view>
+    </view>
+    <block wx:if="{{data.idName1}}">
+        <view class='desc'>
+            <view>姓<text class='text3'></text><text class='text3'></text>名：</view>
+            <view>{{data.idName1}}</view>
+        </view>
+        <view class='desc'>
+            <view>身份证号：</view>
+            <view>{{data.idNumber1}}</view>
+        </view>
+    </block>
+    <block wx:if="{{data.idName2}}">
+        <view class='desc'>
+            <view>姓<text class='text3'></text><text class='text3'></text>名：</view>
+            <view>{{data.idName2}}</view>
+        </view>
+        <view class='desc'>
+            <view>身份证号：</view>
+            <view>{{data.idNumber2}}</view>
+        </view>
+    </block>
+    <block wx:if="{{data.idName3}}">
+        <view class='desc'>
+            <view>姓<text class='text3'></text><text class='text3'></text>名：</view>
+            <view>{{data.idName3}}</view>
+        </view>
+        <view class='desc'>
+            <view>身份证号：</view>
+            <view>{{data.idNumber3}}</view>
+        </view>
+    </block>
+    <block wx:if="{{data.idName4}}">
+        <view class='desc'>
+            <view>姓<text class='text3'></text><text class='text3'></text>名：</view>
+            <view>{{data.idName4}}</view>
+        </view>
+        <view class='desc'>
+            <view>身份证号：</view>
+            <view>{{data.idNumber4}}</view>
+        </view>
+    </block>
+    <block wx:if="{{data.idName5}}">
+        <view class='desc'>
+            <view>姓<text class='text3'></text><text class='text3'></text>名：</view>
+            <view>{{data.idName5}}</view>
+        </view>
+        <view class='desc'>
+            <view>身份证号：</view>
+            <view>{{data.idNumber5}}</view>
+        </view>
+    </block>
+    <block wx:if="{{data.idName6}}">
+        <view class='desc'>
+            <view>姓<text class='text3'></text><text class='text3'></text>名：</view>
+            <view>{{data.idName6}}</view>
+        </view>
+        <view class='desc'>
+            <view>身份证号：</view>
+            <view>{{data.idNumber6}}</view>
+        </view>
+    </block>
+</view>
+
+<view class='price_msg'>
+    <view>
+        <view>商品金额</view>
+        <view>￥{{data.payment}}</view>
+    </view>
+    <view class='postage' wx:if="{{data.order_type == 2}}">
+        <view>
+            <view>运费</view>
+            <view class='text'>邮费</view>
+        </view>
+        <view>15</view>
+    </view>
+</view>
+
+<view class='btns'>
+    <view class='sub'>合计
+        <text class='total'>￥{{data.payment}}</text>
+    </view>
+    <button bindtap="placeOrder">确认下单</button>
+</view>

@@ -1,0 +1,149 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='goods'>
+    <image bindtap='previewImage' mode='widthFix' src="/images/vs.jpg"></image>
+    <view>
+        <view class='title'>{{data.orderItemList[0].events_name}}</view>
+        <view class='time'>{{eventInfo.enterTime}}</view>
+        <view class='time'>{{eventInfo.eventAddress}}</view>
+    </view>
+</view>
+
+<view class='tickets_nums border-line'>
+    <view>{{data.orderItemList && data.orderItemList[0].piece_type}}￥{{data.orderItemList && data.orderItemList[0].price}}</view>
+    <view>x{{data.orderItemList && data.orderItemList[0].num}}</view>
+</view>
+
+<view class='qr_code border-line' wx:if="{{data.order_status === 1}}">
+    <view>取票码</view>
+    <image src='https://ticketed.sportscv.cn/ticketed/pageExhibition/qrcode?content={{data.order_code}}'></image>
+</view>
+
+<view class='border-line get_tickets'>
+    <block wx:if="{{data.order_type == 2}}">
+        <view class='item'>快递寄送</view>
+        <view class='desc'>收货地址：{{data.address}}</view>
+        <view class='desc' wx:if="{{data.courier_number}}">邮寄单号：{{data.courier_number}}</view>
+    </block>
+    <block wx:if="{{data.order_type == 1}}">
+        <view class='item'>到点自取</view>
+        <view class='desc'>
+            <view>取票地址：</view>
+            <view>{{eventInfo.ticketAddress}}</view>
+        </view>
+        <view class='desc'>
+            <view>取票时间：</view>
+            <view>{{eventInfo.ticketTime}}</view>
+        </view>
+        <view class='desc'>
+            <view>联<text class='text2'></text>系<text class='text2'></text>人：</view>
+            <view>{{eventInfo.concatName}}</view>
+        </view>
+        <view class='desc'>
+            <view>联系电话：</view>
+            <view class='concatUser' bindtap='callUser'>{{eventInfo.concatPhone}}</view>
+        </view>
+    </block>
+</view>
+
+<view class='border-line get_tickets' wx:if="{{data.is_invoice}}">
+    <view class='item'>发票信息</view>
+    <view class='desc'>
+        <view>类<text class='text'></text><text class='text'></text>型：</view>
+        <view>{{invoiceInfo.invoiceType ? "个人" : "单位"}}</view>
+    </view>
+    <view class='desc'>
+        <view>名<text class='text'></text><text class='text'></text>称：</view>
+        <view>{{invoiceInfo.title || invoiceInfo.personName}}</view>
+    </view>
+    <block wx:if="{{!invoiceInfo.invoiceType}}">
+        <view class='desc'>
+            <view>税<text class='text'></text><text class='text'></text>号：</view>
+            <view>{{invoiceInfo.taxNumber}}</view>
+        </view>
+        <view class='desc'>
+            <view>单位地址：</view>
+            <view>{{invoiceInfo.companuAddress}}</view>
+        </view>
+        <view class='desc'>
+            <view>电话号码：</view>
+            <view>{{invoiceInfo.telephone}}</view>
+        </view>
+        <view class='desc'>
+            <view>开户银行：</view>
+            <view>{{invoiceInfo.bankName}}</view>
+        </view>
+        <view class='desc'>
+            <view>银行账户：</view>
+            <view>{{invoiceInfo.bankAccount}}</view>
+        </view>
+    </block>
+</view>
+
+<view class='info'>
+    <view>
+        订单编号：<text selectable='{{true}}'>{{ data.order_number }}</text>
+    </view>
+    <view>
+        支付金额：{{ data.payment }}<text wx:if="{{data.order_type == 2}}">（含15元运费）</text>
+    </view>
+    <view>
+        下单时间：{{ data.create_time }}
+    </view>
+    <view>联系电话：{{data.phone}}</view>
+    
+    <block wx:if="{{data.idName1}}">
+        <view>
+            姓<text class='text1'></text><text class='text1'></text>名：{{data.idName1}}
+        </view>
+        <view>身份证号：{{data.idNumber1}}
+        </view>
+    </block>
+    <block wx:if="{{data.idName2}}">
+        <view>
+            姓<text class='text1'></text><text class='text1'></text>名：{{data.idName2}}
+        </view>
+        <view>
+            身份证号：{{data.idNumber2}}
+        </view>
+    </block>
+    <block wx:if="{{data.idName3}}">
+        <view>
+            姓<text class='text1'></text><text class='text1'></text>名：{{data.idName3}}
+        </view>
+        <view>
+            身份证号：{{data.idNumber3}}
+        </view>
+    </block>
+    <block wx:if="{{data.idName4}}">
+        <view>
+            姓<text class='text1'></text><text class='text1'></text>名：{{data.idName4}}
+        </view>
+        <view>
+            身份证号：{{data.idNumber4}}
+        </view>
+    </block>
+    <block wx:if="{{data.idName5}}">
+        <view>
+            姓<text class='text1'></text><text class='text1'></text>名：{{data.idName5}}
+        </view>
+        <view>
+            身份证号：{{data.idNumber5}}
+        </view>
+    </block>
+    <block wx:if="{{data.idName6}}">
+        <view>
+            姓<text class='text1'></text><text class='text1'></text>名：{{data.idName6}}
+        </view>
+        <view>
+            身份证号：{{data.idNumber6}}
+        </view>
+    </block>
+</view>
+
+<view class='btns'>
+    <view class='sub' wx:if="{{data.order_status === 0}}">合计
+        <text class='total'>￥{{ data.payment }}</text>
+    </view>
+    <button wx:if="{{data.order_status !== 0}}" class='status{{data.order_status}}'>{{data.order_statuss}}</button>
+    <button wx:if="{{data.order_status === 0}}"  class='status{{data.order_status}}' bindtap="goToPay">前往支付</button>
+</view>

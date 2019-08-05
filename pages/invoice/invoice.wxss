@@ -1,0 +1,60 @@
+/* pages/invoice/invoice.wxss */
+
+page {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.key {
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 15px;
+  border-bottom: 1px solid #e8e9eb;
+}
+
+.key .name {
+  width: 5em;
+  color: #333;
+}
+
+.key input {
+  flex-grow: 2;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.key .item {
+    position: relative;
+    display: inline-block;
+    height: 54rpx;
+    margin: 13rpx 8rpx;
+    padding: 0 20rpx;
+    font-size: 14px;
+    border: 1px solid #999;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 54rpx;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.item.active {
+    color: #4d8eff;
+    border: 3rpx solid #4d8eff;
+}
+
+button{
+    margin:30rpx 0;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff!important;
+    letter-spacing: 2px;
+    font-size: 16px;
+    background-color: #4287ff!important;
+}
+button:after{
+    border: none;
+}

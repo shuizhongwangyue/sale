@@ -1,0 +1,96 @@
+<view class='detail-page'>
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{10000}}" duration="{{500}}">
+        <swiper-item>
+            <image bindtap='previewImage' data-src="http://img3.sportscv.cn/FjlCVb0bzGnGQWvONfuN1DknHGn8" src="/images/a.jpg" class="slide-image" />
+        </swiper-item>
+    </swiper>
+
+    <view class='title border-line'>
+        <view>
+            <view class='name'>{{data.event_name}}</view>
+            <view class='address'>{{eventInfo.eventAddress}}</view>
+        </view>
+        <view class='location' bindtap='openLocation'>
+            <text class='icon iconfont icon-daohang- open-location right'></text>
+        </view>
+    </view>
+
+    <view class="show border-line">
+        <view class='h3'>购买须知</view>
+        <view class="content">
+            <view>
+                <view>限购说明：</view>
+                <view>每单限购六张</view>
+            </view>
+            <view>
+                <view>入场时间：</view>
+                <view>{{eventInfo.enterTime}}</view>
+            </view>
+            <view>
+                <view>儿童说明：</view>
+                <view>1.2米以上凭票入场，1.2米以下谢绝入场</view>
+            </view>
+            <view>
+                <view>退换政策：</view>
+                <view>球票为特殊商品，除不可抗力导致的球赛取消或延期外，不支持无理由退换，给您带来不便敬请谅解</view>
+            </view>
+            <view>
+                <view>座位类型：</view>
+                <view>请按门票对应座位，有序对号入座</view>
+            </view>
+            <view>
+                <view>配送方式：</view>
+                <view class='keycon'>
+                    <view>1、邮寄：顺丰发送，运费15元</view>
+                    <view>2、指定地点取票：</view>
+                    <view>
+                        <view>取票地点：</view>
+                        <view>{{eventInfo.ticketAddress}}</view>
+                    </view>
+                    <view>
+                        <view>取票时间：</view>
+                        <view>{{eventInfo.ticketTime}}</view>
+                    </view>
+                    <view>
+                        <view>联<text class='text2'></text>系<text class='text2'></text>人：</view>
+                        <view>{{eventInfo.concatName}}</view>
+                    </view>
+                    <view>
+                        <view>联系电话：</view>
+                        <view>{{eventInfo.concatPhone}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="show">
+        <view class='h3'>赛事简介</view>
+    </view>
+
+    <view class='desc'>
+        <view class='decCon {{expand ? " expand" : ""}}'>
+            <view id="description" decode="{{true}}" space="nbsp">
+            <view style="text-align: left;margin-bottom: 30rpx;">
+                <text style="text-align: left;" space="emsp">  夏季国际足球赛事国际冠军杯（ICC）将重返中国，携意甲豪门尤文图斯与国际米兰登陆南京。7月24日，两大意甲俱乐部将在2019国际冠军杯南京站比赛上相遇。\n  两队在意甲及欧冠赛场上均有不俗的表现，本赛季的厮杀中也频频登上新闻头条。强强相遇，他们必将为各自的荣誉而战，为中国球迷带来一场不容错过的精彩对决。以两大俱乐部在中国的超高人气，比赛现场数万球迷为主队呐喊助威的热烈气氛也同样值得期待。\n  自2013年首次亮相以来，国际冠军杯已经成为世界足球日历上不容错过的一大标志性赛事，每年将全球最精英的俱乐部与球员带到世界上各个最具代表性的球场。自成立以来，已有超过480万全球观众在现场观看了国际冠军杯的比赛。今年国际冠军杯的赛场上，12支世界俱乐部将展开18场比赛的角逐，比赛遍及北美、欧洲及亚洲。</text>
+            </view>
+                <image bindtap='previewImage' data-src="http://img3.sportscv.cn/FtGtdBZPGa_zIevnwVEe2Niv7RV4" src="/images/vs.jpeg" mode="widthFix"></image>
+                <image bindtap='previewImage' data-src="http://img3.sportscv.cn/Fs29niuusr_tyVZuUYbQOA3IyX4A" mode="widthFix"></image>
+            </view>
+        </view>
+        <view class='expand' bindtap='expandDesc' wx:if="{{height>84 && !expand}}">
+            {{ !expand ? "查看更多" : "收起" }}
+            <text class="{{expand ? 'icon iconfont icon-arrowup' : 'icon iconfont icon-arrow-down'}}"></text>
+        </view>
+    </view>
+
+    <view class='btns'>
+        <button bindtap="goToBook">立即预定</button>
+    </view>
+</view>
+
+<navigator url="/pages/personal/personal" open-type='navigate' hover-class='none'>
+    <view class="personal">
+        <image class="per-img" src="/images/person.svg" />
+    </view>
+</navigator>

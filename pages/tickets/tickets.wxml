@@ -1,0 +1,86 @@
+<!--pages/tickets/tickets.wxml-->
+<view class="title">{{ name }}</view>
+<view class="show">
+    <view class='h3'>场次选择</view>
+    <view class="item active">
+        2019年07月24日 周三19:30
+        <text class='icon iconfont icon-pa_checked01'></text>
+    </view>
+
+    <view class='h3 level_title'>
+        <view>票档选择</view>
+        <view class='seats_pic' bindtap='previewImage'><text class='icon iconfont icon-zuoweianpai'></text>座位图</view>
+    </view>
+    <view class='level'>
+        <view class="{{restTickets[item.piece_type] && restTickets[item.piece_type]>0 ? '' : 'disable'}} item {{data.piece_type === item.piece_type ? 'active' : ''}}" bindtap="setTicketType" wx:for="{{ticketType}}" data-type="{{item.piece_type}}">
+            <view>{{item.piece_type}}</view>
+            <view style="font-size: 12px;" wx:if="{{restTickets[item.piece_type] && restTickets[item.piece_type]>0}}">
+                ￥{{item.price}}(余票紧张)
+            </view>
+            <view style="font-size: 12px;" wx:if="{{(!restTickets[item.piece_type] || restTickets[item.piece_type]<=0)}}">已售罄</view>
+            <text class='icon iconfont icon-pa_checked01'></text>
+        </view> 
+    </view>
+
+    <block wx:if="{{data.piece_type}}">
+        <view class='h3' wx:if="{{data.piece_type}}">购买张数</view>
+        <view class='nums'>
+            <view bindtap='setNums' class='item {{data.num == 1 ? "active" : ""}}' data-nums='1'>1
+                <text class='icon iconfont icon-pa_checked01'></text>
+            </view>
+            <view bindtap='setNums' class='item {{data.num == 2 ? "active" : ""}}' data-nums='2'>2
+                <text class='icon iconfont icon-pa_checked01'></text>
+            </view>
+            <view bindtap='setNums' class='item {{data.num == 3 ? "active" : ""}}' data-nums='3'>3
+                <text class='icon iconfont icon-pa_checked01'></text>
+            </view>
+            <view bindtap='setNums' class='item {{data.num == 4 ? "active" : ""}}' data-nums='4'>4
+                <text class='icon iconfont icon-pa_checked01'></text>
+            </view>
+            <view bindtap='setNums' class='item {{data.num == 5 ? "active" : ""}}' data-nums='5'>5
+                <text class='icon iconfont icon-pa_checked01'></text>
+            </view>
+            <view bindtap='setNums' class='item {{data.num == 6 ? "active" : ""}}' data-nums='6'>6
+                <text class='icon iconfont icon-pa_checked01'></text>
+            </view>
+        </view>
+        <view style="color: #999;line-height:3em;">
+            * 每张票都需要实名购买
+        </view>
+    </block>
+
+    <view class='h3'>信息填写</view>
+    <block wx:for="{{numsArray}}">
+        <view class='key'>
+            <view class='name'>姓<text class='text'></text><text class='text'></text>名:</view>
+            <input value="{{data['idName'+ (index + 1)]}}" bindinput='inputChange' data-key="idName{{(index + 1)}}" placeholder='请输真实姓名'></input>
+        </view>
+        <view class='key'>
+            <view class='name'>身份证号:</view>
+            <input value="{{data['idNumber'+ (index + 1)]}}" bindinput='inputChange' data-key="idNumber{{(index + 1)}}" placeholder='请输身份证号'></input>
+        </view>
+    </block>
+    <view class='key'>
+        <view class='name'>联系电话:</view>
+        <input value="{{data.phone}}" bindinput='inputChange' data-key="phone" placeholder='请输手机号'></input>
+    </view>
+    <view class='key'>
+        <view class='name'>取票方式:</view>
+        <view class='item {{data.order_type == 2 ? "active" : ""}}' bindtap='setType' data-value="2">邮寄<text class='icon iconfont icon-pa_checked01'></text></view>
+        <view class='item {{data.order_type == 1 ? "active" : ""}}' bindtap='setType' data-value="1">自取<text class='icon iconfont icon-pa_checked01'></text></view>
+        <text class='note'>*邮寄需运费15元</text>
+    </view>
+    <view class='key' wx:if="{{data.order_type == 2}}">
+        <view class='name'>收货地址:</view>
+        <input bindinput='inputChange' data-key="address" placeholder='请输入您的地址'></input>
+    </view>
+</view>
+
+
+
+<view class='btns'>
+    <view class='sub'>合计
+        <text class='total'>￥{{data.payment}}</text>
+    </view>
+    <button bindtap="placeOrder">结算</button>
+</view>

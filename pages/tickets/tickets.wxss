@@ -1,0 +1,212 @@
+/* pages/tickets/tickets.wxss */
+
+page {
+    padding: 30rpx;
+    box-sizing: border-box;
+    padding-bottom: 88rpx;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.item {
+    position: relative;
+    display: inline-block;
+    padding: 20rpx;
+    font-size: 14px;
+    border: 1px solid #999;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.item.active {
+    color: #4d8eff;
+    border: 3rpx solid #4d8eff;
+}
+.item.disable{
+    color: #BBB;
+    border: 1px solid #BBB;
+}
+
+.item .icon {
+    position: absolute;
+    display: none;
+    bottom: -3px;
+    right: -2px;
+    font-size: 40px;
+    color: #4d8eff;
+}
+
+.item.active .icon {
+    display: inline-block;
+}
+.level_title{
+    display: flex;
+}
+.level_title:before{
+    margin-top: 4px;
+}
+.level_title>view:nth-child(1){
+    flex-grow: 2;
+}
+.level_title>view{
+    align-self: center;
+}
+.seats_pic{
+    font-size:14px;
+    color:#4287ff;
+    border-radius:4rpx;
+    padding:3rpx 6rpx;
+    align-self: center;
+}
+.seats_pic text{
+    font-size:14px;
+    margin-right: 10rpx;
+}
+.level, .nums {
+    display: flex;
+    flex-wrap: wrap;
+}
+.nums{
+    justify-content: space-between;
+}
+.level .item {
+    width: 30%;
+    margin: 0;
+    margin-right: 5%;
+    margin-bottom: 30rpx!important;
+    padding: 10rpx 0;
+    white-space: nowrap;
+    text-align: center;
+}
+.level .item:nth-child(3n){
+    margin: 0;
+}
+
+.level .item .icon {
+    font-size: 35px;
+}
+
+.nums .item {
+    width: 12%;
+    margin: 0;
+    padding: 12rpx 0;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.nums .item .icon {
+    font-size: 30px;
+}
+
+.key .item {
+    height: 66rpx;
+    margin: 7rpx 8rpx;
+    padding: 0 20rpx;
+    line-height: 66rpx;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.key .item .icon {
+    font-size: 30px;
+}
+
+.show .h3 {
+    margin: 30rpx 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.key {
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 15px;
+    border-bottom: 1px solid #e8e9eb;
+}
+
+.key-first {
+    border-top: 1px solid #e8e9eb;
+}
+
+.key.code {
+    border-bottom: 1px solid #e8e9eb;
+}
+
+.key input {
+    flex-grow: 2;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.name {
+    width: 5em;
+    color: #333;
+}
+
+.note {
+    display: inline-block;
+    height: 12px;
+    margin-top: 20px;
+    padding: 0 4px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #4d8eff;
+}
+
+.text {
+    display: inline-block;
+    width: 1em;
+    height: 20rpx;
+}
+
+.text2 {
+    display: inline-block;
+    width: 0.5em;
+    height: 20rpx;
+}
+
+.btns {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 88rpx;
+    text-align: right;
+    border-top: 1px solid #d4d4d4;
+    background-color: #fff;
+    z-index: 100;
+}
+.sub{
+    padding-left: 30rpx;
+    flex-grow: 2;
+    text-align: left;
+}
+.btns .total{
+    font-size: 16px;
+    color: #FA5939;
+    line-height: 88rpx;
+}
+.btns button {
+    display: inline-block;
+    margin:0;
+    width: 316rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff;
+    border-radius: 0;
+    letter-spacing: 2px;
+    font-size: 16px;
+    background-color: #4287ff;
+}
+
+.btns button:after {
+    border: none;
+    border-radius: none;
+}

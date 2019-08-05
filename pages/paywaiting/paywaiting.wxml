@@ -1,0 +1,42 @@
+<!--pages/paywaiting/paywaiting.wxml-->
+<view class='rest_time'>
+    支付剩余时间：<text>{{restTime}}</text>
+</view>
+<view class='order_info'>
+    <view class='key'>
+        <view>支付金额：</view>
+        <view>{{ data.payment }}元</view>
+    </view>
+    <view class='key'>
+        <view>商品名称：</view>
+        <view>{{data.orderItemList[0].events_name}}</view>
+    </view>
+    <view class='key'>
+        <view>下单时间：</view>
+        <view>{{ data.create_time }}</view>
+    </view>
+    <view class='key'>
+        <view>订<text class='text2'></text>单<text class='text2'></text>号：</view>
+        <view>{{ data.order_number }}</view>
+    </view>
+</view>
+
+<view class='invoice'>
+    <text>发票开具</text>
+    <text bindtap='toggleInvoice' class='icon iconfont icon-check {{invoice ? "active" : ""}}'></text>
+</view>
+<view class='invoice-mes border-line'>
+    <view wx:if="{{invoiceData}}">
+        {{invoiceData.title || invoiceData.personName}} <navigator url="/pages/invoice/invoice" open-type='navigate' hover-class='none'><text>修改发票抬头</text></navigator>
+    </view>
+</view>
+
+<view class='paymethods'>
+    <text class='icon iconfont icon-weixin'></text>
+    <text>微信支付</text>
+    <text class='icon iconfont icon-check'></text>
+</view>
+
+<view class='btns'>
+    <button bindtap="sureAction">确认支付</button>
+</view>

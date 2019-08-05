@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tickets/tickets",
+    "pages/confirm/confirm",
+    "pages/personal/personal",
+    "pages/invoice/invoice",
+    "pages/paywaiting/paywaiting",
+    "pages/orderDetail/orderDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "2019国际冠军杯",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

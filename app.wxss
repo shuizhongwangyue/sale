@@ -1,0 +1,29 @@
+/**app.wxss**/
+@import "/style/icon/iconfont.wxss";
+page{
+    color:#666;
+    font-size: 14px;
+    border-top: 1px solid #D8D8D8;
+    box-sizing: border-box;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+button{
+    box-sizing: border-box;
+}
+.inline-block{
+    display: inline-block;
+}
+
+/* 设置底部边框改变背景颜色隔开效果 */
+.border-line{
+    border-bottom: 20rpx solid #F1F0F5;
+}

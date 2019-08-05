@@ -1,0 +1,41 @@
+<!--pages/invoice/invoice.wxml-->
+
+<view class='key'>
+    <view class='name'>抬头类型</view>
+    <view bindtap='changeType' data-type='1' class='item {{invoiceType==1 ? "active" : ""}}'>个人</view>
+    <view bindtap='changeType' data-type='0' class='item {{invoiceType==0 ? "active" : ""}}'>单位</view>
+</view>
+<block wx:if="{{invoiceType==0}}">
+    <view class='key'>
+        <view class='name'>名称</view>
+        <input bindinput='inputChange' value="{{title}}" data-key="title" placeholder='单位名称'></input>
+    </view>
+    <view class='key'>
+        <view class='name'>税号</view>
+        <input bindinput='inputChange' value="{{taxNumber}}" data-key="taxNumber" placeholder='纳税人识别号'></input>
+    </view>
+    <view class='key'>
+        <view class='name'>单位地址</view>
+        <input bindinput='inputChange' value="{{companuAddress}}" data-key="companuAddress" placeholder='单位地址信息'></input>
+    </view>
+    <view class='key'>
+        <view class='name'>电话号码</view>
+        <input bindinput='inputChange' value="{{telephone}}" data-key="telephone" placeholder='电话号码'></input>
+    </view>
+    <view class='key'>
+        <view class='name'>开户银行</view>
+        <input bindinput='inputChange' value="{{bankName}}" data-key="bankName" placeholder='开户银行名称'></input>
+    </view>
+    <view class='key'>
+        <view class='name'>银行账户</view>
+        <input bindinput='inputChange' value="{{bankAccount}}" data-key="bankAccount" placeholder='银行账户号码'></input>
+    </view>
+</block>
+<block wx:if="{{invoiceType==1}}">
+    <view class='key'>
+        <view class='name'>名称</view>
+        <input bindinput='inputChange' value="{{personName}}" data-key="personName" placeholder='姓名(必填)'></input>
+    </view>
+</block>
+<button wx:if="{{invoiceType==0}}" bindtap='chooseInvoiceTitle'>获取发票抬头</button>
+<button bindtap='sureAction'>确定</button>

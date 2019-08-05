@@ -1,0 +1,35 @@
+<!--pages/personal/personal.wxml-->
+<view class='head'>
+    <view class='head-image'>
+        <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class='username'><open-data type="userNickName"></open-data></view>
+</view>
+
+<view class="list-con">
+    <navigator open-type='navigate' url="/pages/orderDetail/orderDetail?id={{item.id}}" wx:for="{{list}}">
+        <view class="list">
+            <view class="status">
+                <text class="{{ item.order_status === -1 ? 'over' : item.order_status === 0 ? 'readay' : 'ing' }}">{{ item.order_statuss }}</text>
+            </view>
+            <view class="con">
+                <image mode="aspectFill" src="/images/vs.jpg"></image>
+                <view class="content">
+                    <text class="title">{{item.orderItemList[0].events_name}}</text>
+                    <view class='key'>
+                        <image class="icon" src="/images/time2.svg" />
+                        <text>2019-07-24 19:30</text>
+                    </view>
+                    <view class='key'>
+                        <image class="icon" src="/images/location.svg" />
+                        <text>南京奥体中心体育场</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+
+    <view wx:if="{{!list.length}}" class="nullData">
+        <view>尚无任何订单</view>
+    </view>
+</view>
